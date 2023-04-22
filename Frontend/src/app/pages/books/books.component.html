@@ -1,0 +1,31 @@
+<app-books-navbar></app-books-navbar>
+
+<div class="container pt-5 mt-5">
+  <!-- <button (click)="logout()" style="float: right">Logout</button> -->
+    <h1 class="text-center">My Books</h1>
+    <table class="table table-striped pt-5 mt-5">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Book</th>
+            <th scope="col">Author</th>
+            <th scope="col">Id</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of books; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{book.name}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book._id}}</td>
+<td>
+    <button type="button" class="btn btn-primary btn-sm" routerLink="/editbook/{{book._id}}">Edit</button> &nbsp;&nbsp;
+    <button (click)="deleteBook(book._id, i)" type="button" class="btn btn-danger btn-sm">Delete</button>
+</td>
+
+          </tr>
+
+        </tbody>
+      </table>
+</div>
